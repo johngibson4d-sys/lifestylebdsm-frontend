@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import PaymentForm from '@/components/PaymentForm';
 
@@ -10,6 +9,7 @@ interface Room {
   name: string;
   description: string;
   pricePerHour: number;
+  priceOvernight: number;
   amenities: string[];
   images: string[];
 }
@@ -19,7 +19,8 @@ const rooms: Room[] = [
     id: 1,
     name: "Deluxe Suite",
     description: "Spacious suite with modern amenities and elegant decor. Perfect for extended stays or special occasions.",
-    pricePerHour: 50,
+    pricePerHour: 200,
+    priceOvernight: 500,
     amenities: ["King Size Bed", "Private Bathroom", "Mini Bar", "WiFi", "Air Conditioning", "Room Service"],
     images: [
       "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
@@ -31,10 +32,11 @@ const rooms: Room[] = [
     id: 2,
     name: "Executive Room",
     description: "Comfortable room with business amenities and contemporary design. Ideal for business travelers.",
-    pricePerHour: 40,
+    pricePerHour: 200,
+    priceOvernight: 500,
     amenities: ["Queen Size Bed", "Private Bathroom", "Work Desk", "WiFi", "Air Conditioning", "Coffee Maker"],
     images: [
-      "https://images.unsplash.com/photo-1618773928121-c32242e1fcc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
       "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
     ]
@@ -43,7 +45,8 @@ const rooms: Room[] = [
     id: 3,
     name: "Standard Room",
     description: "Cozy room with essential amenities and comfortable furnishings. Great value for short stays.",
-    pricePerHour: 30,
+    pricePerHour: 200,
+    priceOvernight: 500,
     amenities: ["Double Bed", "Private Bathroom", "WiFi", "Air Conditioning", "TV", "Safe"],
     images: [
       "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
@@ -55,7 +58,8 @@ const rooms: Room[] = [
     id: 4,
     name: "Premium Suite",
     description: "Luxury suite with premium amenities and stunning views. The ultimate in comfort and style.",
-    pricePerHour: 75,
+    pricePerHour: 200,
+    priceOvernight: 500,
     amenities: ["King Size Bed", "Private Bathroom", "Jacuzzi", "Mini Bar", "WiFi", "Air Conditioning", "Room Service", "Balcony"],
     images: [
       "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
@@ -143,8 +147,8 @@ export default function RoomsPage() {
                   <div className="flex justify-between items-start mb-4">
                     <h3 className="text-2xl font-bold text-white">{room.name}</h3>
                     <div className="text-right">
-                      <p className="text-primary font-bold text-2xl">${room.pricePerHour}</p>
-                      <p className="text-gray-400 text-sm">per hour</p>
+                      <p className="text-primary font-bold text-xl">${room.pricePerHour}/hour</p>
+                      <p className="text-secondary font-bold text-lg">${room.priceOvernight}/night</p>
                     </div>
                   </div>
 
@@ -248,7 +252,7 @@ export default function RoomsPage() {
               <div className="bg-black/30 p-4 rounded-lg">
                 <div className="flex justify-between text-white mb-2">
                   <span>Room: {selectedRoom.name}</span>
-                  <span>${selectedRoom.pricePerHour}/hour</span>
+                  <span>${selectedRoom.pricePerHour}/hour | ${selectedRoom.priceOvernight}/night</span>
                 </div>
                 <div className="flex justify-between text-white font-semibold">
                   <span>Total (estimated):</span>
@@ -280,33 +284,25 @@ export default function RoomsPage() {
       <section className="py-20 bg-gradient-to-b from-black to-accent">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
-            Flexible <span className="text-primary">Hourly</span> Pricing
+            Simple <span className="text-primary">Pricing</span> for All Rooms
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            All our rooms are available for hourly booking. Choose the duration that works best for you, 
-            from a quick 1-hour stay to a full 24-hour experience.
+            All our rooms feature the same competitive pricing. Choose between hourly or overnight stays 
+            to suit your needs perfectly.
           </p>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="bg-accent/50 p-6 rounded-xl border border-primary/20">
-              <h3 className="text-white font-semibold mb-2">Standard</h3>
-              <p className="text-primary font-bold text-2xl">$30</p>
-              <p className="text-gray-400 text-sm">per hour</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+            <div className="bg-accent/50 p-8 rounded-xl border border-primary/20">
+              <h3 className="text-white font-semibold mb-4 text-xl">Hourly Rate</h3>
+              <p className="text-primary font-bold text-4xl mb-2">$200</p>
+              <p className="text-gray-400 text-lg">per hour</p>
+              <p className="text-gray-300 text-sm mt-3">Perfect for short stays, meetings, or quick getaways</p>
             </div>
-            <div className="bg-accent/50 p-6 rounded-xl border border-primary/20">
-              <h3 className="text-white font-semibold mb-2">Executive</h3>
-              <p className="text-primary font-bold text-2xl">$40</p>
-              <p className="text-gray-400 text-sm">per hour</p>
-            </div>
-            <div className="bg-accent/50 p-6 rounded-xl border border-primary/20">
-              <h3 className="text-white font-semibold mb-2">Deluxe</h3>
-              <p className="text-primary font-bold text-2xl">$50</p>
-              <p className="text-gray-400 text-sm">per hour</p>
-            </div>
-            <div className="bg-accent/50 p-6 rounded-xl border border-primary/20">
-              <h3 className="text-white font-semibold mb-2">Premium</h3>
-              <p className="text-primary font-bold text-2xl">$75</p>
-              <p className="text-gray-400 text-sm">per hour</p>
+            <div className="bg-accent/50 p-8 rounded-xl border border-primary/20">
+              <h3 className="text-white font-semibold mb-4 text-xl">Overnight Rate</h3>
+              <p className="text-primary font-bold text-4xl mb-2">$500</p>
+              <p className="text-gray-400 text-lg">per night</p>
+              <p className="text-gray-300 text-sm mt-3">Ideal for extended stays and overnight experiences</p>
             </div>
           </div>
         </div>
@@ -317,6 +313,7 @@ export default function RoomsPage() {
         <PaymentForm
           roomName={selectedRoom.name}
           pricePerHour={selectedRoom.pricePerHour}
+          priceOvernight={selectedRoom.priceOvernight}
           hours={reservationData.hours}
           onSuccess={handlePaymentSuccess}
           onCancel={handlePaymentCancel}

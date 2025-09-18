@@ -96,7 +96,7 @@ export default function Home() {
               <h3 className="text-2xl font-semibold text-white mb-4">Easy Reservation</h3>
               <p className="text-gray-400">
                 Simple online booking process. Just provide your details, 
-                select your time, and you're all set for your stay.
+                select your time, and you&apos;re all set for your stay.
               </p>
             </div>
           </div>
@@ -126,7 +126,7 @@ export default function Home() {
             {[
               "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
               "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-              "https://images.unsplash.com/photo-1618773928121-c32242e1fcc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+              "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
               "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
               "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
               "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"

@@ -35,8 +35,8 @@ export default function ContactPage() {
             Contact <span className="text-primary">Us</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Have questions about our rooms or services? We're here to help. 
-            Get in touch with us and we'll respond as soon as possible.
+            Have questions about our rooms or services? We&apos;re here to help. 
+            Get in touch with us and we&apos;ll respond as soon as possible.
           </p>
         </div>
       </section>

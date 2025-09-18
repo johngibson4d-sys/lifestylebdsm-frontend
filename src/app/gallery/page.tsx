@@ -31,7 +31,7 @@ const galleryImages: GalleryImage[] = [
     title: "Executive Room", 
     category: "Rooms", 
     description: "Business-friendly room with work desk",
-    imageUrl: "https://images.unsplash.com/photo-1618773928121-c32242e1fcc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
   },
   { 
     id: 4, 
@@ -217,7 +217,7 @@ export default function GalleryPage() {
             Ready to Experience It Yourself?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Book your room now and enjoy the luxury and comfort you've seen in our gallery.
+            Book your room now and enjoy the luxury and comfort you&apos;ve seen in our gallery.
           </p>
           <a 
             href="/rooms" 

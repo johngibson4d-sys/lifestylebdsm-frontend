@@ -5,12 +5,13 @@ import { useState } from 'react';
 interface PaymentFormProps {
   roomName: string;
   pricePerHour: number;
+  priceOvernight: number;
   hours: number;
   onSuccess: () => void;
   onCancel: () => void;
 }
 
-export default function PaymentForm({ roomName, pricePerHour, hours, onSuccess, onCancel }: PaymentFormProps) {
+export default function PaymentForm({ roomName, pricePerHour, priceOvernight, hours, onSuccess, onCancel }: PaymentFormProps) {
   const [paymentData, setPaymentData] = useState({
     cardNumber: '',
     expiryDate: '',
@@ -51,7 +52,7 @@ export default function PaymentForm({ roomName, pricePerHour, hours, onSuccess, 
 
     // Simulate payment processing
     setTimeout(() => {
-      setIsProcessing(false);
+      setIsProcessing(false);   
       onSuccess();
     }, 2000);
   };
@@ -85,7 +86,7 @@ export default function PaymentForm({ roomName, pricePerHour, hours, onSuccess, 
             </div>
             <div className="flex justify-between text-gray-300">
               <span>Rate:</span>
-              <span>${pricePerHour}/hour</span>
+              <span>${pricePerHour}/hour | ${priceOvernight}/night</span>
             </div>
             <div className="border-t border-primary/20 pt-2 mt-2">
               <div className="flex justify-between text-white font-semibold">
