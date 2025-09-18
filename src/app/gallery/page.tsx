@@ -14,87 +14,143 @@ interface GalleryImage {
 const galleryImages: GalleryImage[] = [
   { 
     id: 1, 
-    title: "Deluxe Suite - Living Area", 
+    title: "Dungeon Room 1", 
     category: "Rooms", 
-    description: "Spacious living area with modern furnishings",
-    imageUrl: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+    description: "Professional BDSM dungeon room",
+    imageUrl: "/_ (1).jpeg"
   },
   { 
     id: 2, 
-    title: "Deluxe Suite - Bedroom", 
+    title: "Dungeon Room 2", 
     category: "Rooms", 
-    description: "Elegant bedroom with king-size bed",
-    imageUrl: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+    description: "Professional BDSM dungeon room",
+    imageUrl: "/_ (2).jpeg"
   },
   { 
     id: 3, 
-    title: "Executive Room", 
+    title: "Dungeon Room 3", 
     category: "Rooms", 
-    description: "Business-friendly room with work desk",
-    imageUrl: "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+    description: "Professional BDSM dungeon room",
+    imageUrl: "/_ (3).jpeg"
   },
   { 
     id: 4, 
-    title: "Standard Room", 
+    title: "Dungeon Room 4", 
     category: "Rooms", 
-    description: "Comfortable standard accommodation",
-    imageUrl: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+    description: "Professional BDSM dungeon room",
+    imageUrl: "/_ (4).jpeg"
   },
   { 
     id: 5, 
-    title: "Premium Suite - Bathroom", 
+    title: "Dungeon Room 5", 
     category: "Rooms", 
-    description: "Luxury bathroom with jacuzzi",
-    imageUrl: "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+    description: "Professional BDSM dungeon room",
+    imageUrl: "/_ (5).jpeg"
   },
   { 
     id: 6, 
-    title: "Premium Suite - Balcony", 
+    title: "Dungeon Room 6", 
     category: "Rooms", 
-    description: "Private balcony with stunning views",
-    imageUrl: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+    description: "Professional BDSM dungeon room",
+    imageUrl: "/_ (6).jpeg"
   },
   { 
     id: 7, 
-    title: "Hotel Lobby", 
+    title: "Dungeon Entrance", 
     category: "Common Areas", 
-    description: "Welcoming lobby with elegant design",
-    imageUrl: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+    description: "Welcoming entrance with elegant design",
+    imageUrl: "/_ (7).jpeg"
   },
   { 
     id: 8, 
     title: "Reception Area", 
     category: "Common Areas", 
     description: "Professional reception desk",
-    imageUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+    imageUrl: "/_ (8).jpeg"
   },
   { 
     id: 9, 
     title: "Corridor View", 
     category: "Common Areas", 
     description: "Well-lit corridors with modern design",
-    imageUrl: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+    imageUrl: "/_ (9).jpeg"
   },
   { 
     id: 10, 
-    title: "Hotel Exterior", 
+    title: "Dungeon Exterior", 
     category: "Exterior", 
-    description: "Beautiful hotel building facade",
-    imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+    description: "Beautiful dungeon building facade",
+    imageUrl: "/_ (10).jpeg"
   },
   { 
     id: 11, 
     title: "Parking Area", 
     category: "Exterior", 
     description: "Convenient parking facilities",
-    imageUrl: "https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+    imageUrl: "/_ (11).jpeg"
   },
   { 
     id: 12, 
     title: "Garden View", 
     category: "Exterior", 
     description: "Peaceful garden area",
-    imageUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+    imageUrl: "/_ (12).jpeg"
+  },
+  { 
+    id: 13, 
+    title: "Dungeon Room 7", 
+    category: "Rooms", 
+    description: "Professional BDSM dungeon room",
+    imageUrl: "/_ (13).jpeg"
+  },
+  { 
+    id: 14, 
+    title: "Dungeon Room 8", 
+    category: "Rooms", 
+    description: "Professional BDSM dungeon room",
+    imageUrl: "/_ (14).jpeg"
+  },
+  { 
+    id: 15, 
+    title: "Dungeon Room 9", 
+    category: "Rooms", 
+    description: "Professional BDSM dungeon room",
+    imageUrl: "/_ (15).jpeg"
+  },
+  { 
+    id: 16, 
+    title: "Dungeon Room 10", 
+    category: "Rooms", 
+    description: "Professional BDSM dungeon room",
+    imageUrl: "/_ (16).jpeg"
+  },
+  { 
+    id: 17, 
+    title: "Dungeon Room 11", 
+    category: "Rooms", 
+    description: "Professional BDSM dungeon room",
+    imageUrl: "/_ (17).jpeg"
+  },
+  { 
+    id: 18, 
+    title: "Dungeon Room 12", 
+    category: "Rooms", 
+    description: "Professional BDSM dungeon room",
+    imageUrl: "/_ (18).jpeg"
+  },
+  { 
+    id: 19, 
+    title: "Dungeon Room 13", 
+    category: "Rooms", 
+    description: "Professional BDSM dungeon room",
+    imageUrl: "/_ (19).jpeg"
+  },
+  { 
+    id: 20, 
+    title: "Dungeon Room 14", 
+    category: "Rooms", 
+    description: "Professional BDSM dungeon room",
+    imageUrl: "/_ (20).jpeg"
   },
 ];
 
@@ -114,11 +170,11 @@ export default function GalleryPage() {
       <section className="relative py-20 bg-gradient-to-br from-secondary/20 via-primary/10 to-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            Hotel <span className="text-primary">Gallery</span>
+            Dungeon <span className="text-primary">Gallery</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Take a virtual tour of our beautiful hotel. Explore our rooms, common areas, 
-            and facilities to see what makes Lifestyle BDSM Hotel special.
+            Take a virtual tour of our beautiful dungeon. Explore our themed rooms, play areas, 
+            and facilities to see what makes Lifestyle BDSM Dungeon special.
           </p>
         </div>
       </section>
@@ -163,13 +219,6 @@ export default function GalleryPage() {
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
                 </div>
-                <div className="p-4">
-                  <h3 className="text-white font-semibold mb-2">{image.title}</h3>
-                  <p className="text-gray-400 text-sm">{image.description}</p>
-                  <span className="inline-block mt-2 px-3 py-1 bg-primary/20 text-primary text-xs rounded-full">
-                    {image.category}
-                  </span>
-                </div>
               </div>
             ))}
           </div>
@@ -198,13 +247,6 @@ export default function GalleryPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="p-6">
-                <h2 className="text-2xl font-bold text-white mb-2">{selectedImage.title}</h2>
-                <p className="text-gray-300 mb-4">{selectedImage.description}</p>
-                <span className="inline-block px-4 py-2 bg-primary/20 text-primary rounded-full">
-                  {selectedImage.category}
-                </span>
-              </div>
             </div>
           </div>
         </div>
@@ -217,13 +259,13 @@ export default function GalleryPage() {
             Ready to Experience It Yourself?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Book your room now and enjoy the luxury and comfort you&apos;ve seen in our gallery.
+            Book your session now and enjoy the freedom and exploration you&apos;ve seen in our gallery.
           </p>
           <a 
-            href="/rooms" 
+            href="/contact" 
             className="inline-block bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105"
           >
-            Book Your Stay
+            Book Your Session
           </a>
         </div>
       </section>

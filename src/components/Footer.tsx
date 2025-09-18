@@ -14,7 +14,7 @@ export default function Footer() {
               <span className="text-white font-bold text-xl">Lifestyle BDSM</span>
             </div>
             <p className="text-gray-400 mb-4 max-w-md">
-              Experience luxury and comfort at our premium hotel. We offer exceptional accommodations 
+              Experience freedom and exploration at our premium dungeon. We offer exceptional BDSM services 
               with hourly booking options to suit your needs.
             </p>
             <div className="flex space-x-4">
@@ -70,7 +70,7 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Contact Info</h3>
             <div className="space-y-2 text-gray-400">
-              <p>123 Hotel Street</p>
+              <p>123 Dungeon Lane</p>
               <p>City, State 12345</p>
               <p>Phone: (555) 123-4567</p>
               <p>Email: info@lifestylebdsm.com</p>
@@ -80,7 +80,7 @@ export default function Footer() {
 
         <div className="border-t border-primary/20 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © 2024 Lifestyle BDSM Hotel. All rights reserved.
+            © 2024 Lifestyle BDSM Dungeon. All rights reserved.
           </p>
         </div>
       </div>

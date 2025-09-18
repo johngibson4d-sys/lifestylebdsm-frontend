@@ -2,9 +2,20 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import BookingForm from './BookingForm';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showBookingForm, setShowBookingForm] = useState(false);
+
+  const handleBookingSuccess = () => {
+    setShowBookingForm(false);
+    alert('Thank you for your booking request! We will contact you within 24 hours to confirm your session.');
+  };
+
+  const handleBookingCancel = () => {
+    setShowBookingForm(false);
+  };
 
   return (
     <nav className="bg-black border-b border-primary/20 sticky top-0 z-50">
@@ -27,16 +38,16 @@ export default function Navigation() {
               Home
             </Link>
             <Link 
-              href="/rooms" 
-              className="text-white hover:text-primary transition-colors duration-200 font-medium"
-            >
-              Rooms
-            </Link>
-            <Link 
               href="/gallery" 
               className="text-white hover:text-primary transition-colors duration-200 font-medium"
             >
               Gallery
+            </Link>
+            <Link 
+              href="/faq" 
+              className="text-white hover:text-primary transition-colors duration-200 font-medium"
+            >
+              FAQ
             </Link>
             <Link 
               href="/contact" 
@@ -44,12 +55,12 @@ export default function Navigation() {
             >
               Contact
             </Link>
-            <Link 
-              href="/rooms" 
+            <button 
+              onClick={() => setShowBookingForm(true)}
               className="bg-primary hover:bg-red-700 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200"
             >
               Book Now
-            </Link>
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -81,18 +92,18 @@ export default function Navigation() {
                 Home
               </Link>
               <Link 
-                href="/rooms" 
-                className="block px-3 py-2 text-white hover:text-primary transition-colors duration-200 font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Rooms
-              </Link>
-              <Link 
                 href="/gallery" 
                 className="block px-3 py-2 text-white hover:text-primary transition-colors duration-200 font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Gallery
+              </Link>
+              <Link 
+                href="/faq" 
+                className="block px-3 py-2 text-white hover:text-primary transition-colors duration-200 font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                FAQ
               </Link>
               <Link 
                 href="/contact" 
@@ -101,17 +112,27 @@ export default function Navigation() {
               >
                 Contact
               </Link>
-              <Link 
-                href="/rooms" 
+              <button 
+                onClick={() => {
+                  setShowBookingForm(true);
+                  setIsMenuOpen(false);
+                }}
                 className="block px-3 py-2 bg-primary hover:bg-red-700 text-white rounded-lg font-medium transition-colors duration-200 mx-3 mt-2"
-                onClick={() => setIsMenuOpen(false)}
               >
                 Book Now
-              </Link>
+              </button>
             </div>
           </div>
         )}
       </div>
+
+      {/* Booking Form Modal */}
+      {showBookingForm && (
+        <BookingForm
+          onSuccess={handleBookingSuccess}
+          onCancel={handleBookingCancel}
+        />
+      )}
     </nav>
   );
 }

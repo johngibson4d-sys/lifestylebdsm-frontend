@@ -60,7 +60,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-white font-semibold text-lg mb-2">Address</h3>
                     <p className="text-gray-300">
-                      123 Hotel Street<br />
+                      123 Dungeon Lane<br />
                       City, State 12345<br />
                       United States
                     </p>
@@ -77,7 +77,7 @@ export default function ContactPage() {
                     <h3 className="text-white font-semibold text-lg mb-2">Phone</h3>
                     <p className="text-gray-300">
                       (555) 123-4567<br />
-                      Available 24/7 for reservations
+                      Available 24/7 for session bookings
                     </p>
                   </div>
                 </div>
@@ -92,7 +92,7 @@ export default function ContactPage() {
                     <h3 className="text-white font-semibold text-lg mb-2">Email</h3>
                     <p className="text-gray-300">
                       info@lifestylebdsm.com<br />
-                      reservations@lifestylebdsm.com
+                      bookings@lifestylebdsm.com
                     </p>
                   </div>
                 </div>
@@ -218,7 +218,7 @@ export default function ContactPage() {
                 </svg>
               </div>
               <p className="text-white font-medium text-lg">Interactive Map</p>
-              <p className="text-gray-400">123 Hotel Street, City, State 12345</p>
+              <p className="text-gray-400">123 Dungeon Lane, City, State 12345</p>
             </div>
           </div>
         </div>

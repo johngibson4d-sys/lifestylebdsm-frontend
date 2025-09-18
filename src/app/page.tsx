@@ -1,7 +1,21 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState } from 'react';
+import BookingForm from '@/components/BookingForm';
 
 export default function Home() {
+  const [showBookingForm, setShowBookingForm] = useState(false);
+
+  const handleBookingSuccess = () => {
+    setShowBookingForm(false);
+    alert('Thank you for your booking request! We will contact you within 24 hours to confirm your session.');
+  };
+
+  const handleBookingCancel = () => {
+    setShowBookingForm(false);
+  };
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -11,9 +25,10 @@ export default function Home() {
         
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-            alt="Luxury hotel room"
+
+            <Image
+              src="/bdsm-cover.jpg"
+              alt="Luxury BDSM dungeon room"
             fill
             className="object-cover"
             priority
@@ -26,16 +41,16 @@ export default function Home() {
               Lifestyle <span className="text-primary">BDSM</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Experience luxury accommodations with hourly booking flexibility. 
-              Your perfect stay awaits.
+              Experience freedom and exploration in our beautiful Lifestyle BDSM dungeon. 
+              Come experience what freedom feels like.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
-                href="/rooms" 
+              <button 
+                onClick={() => setShowBookingForm(true)}
                 className="bg-primary hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105"
               >
-                Book Your Room
-              </Link>
+                Book Your Session
+              </button>
               <Link 
                 href="/gallery" 
                 className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300"
@@ -54,9 +69,12 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Why Choose <span className="text-primary">Lifestyle BDSM</span>?
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              We offer premium accommodations with flexible hourly booking options 
-              to suit your unique needs and schedule.
+            <p className="text-xl text-gray-400 max-w-4xl mx-auto mb-8">
+              Since its inception, Lifestyle BDSM Dungeon has been home for many Lifestyle Mistresses and renowned Dominatrices. 
+              We operate on the philosophy of safe, sane and consensual play, built upon the foundation of education.
+            </p>
+            <p className="text-lg text-gray-300 max-w-4xl mx-auto">
+              LIFESTYLE BDSM is steeped in tradition while governed by the BDSM principles of Honor, Loyalty, and Dedication.
             </p>
           </div>
 
@@ -64,13 +82,13 @@ export default function Home() {
             <div className="text-center p-8 bg-accent/50 rounded-xl border border-primary/20 hover:border-primary/40 transition-all duration-300">
               <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-semibold text-white mb-4">Hourly Booking</h3>
+              <h3 className="text-2xl font-semibold text-white mb-4">Safety & Discretion</h3>
               <p className="text-gray-400">
-                Book rooms by the hour for maximum flexibility. Perfect for short stays, 
-                meetings, or quick getaways.
+                We prioritize your safety and discretion, ensuring secure and satisfying experiences 
+                based on your personal fantasies. Your discretion is our priority.
               </p>
             </div>
 
@@ -80,23 +98,23 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-semibold text-white mb-4">Premium Rooms</h3>
+              <h3 className="text-2xl font-semibold text-white mb-4">BDSM Themed Rooms</h3>
               <p className="text-gray-400">
-                All our rooms feature modern amenities, comfortable furnishings, 
-                and elegant design for your ultimate comfort.
+                With BDSM themed rooms and a fully-equipped facility, the possibilities of exploring 
+                all elements of BDSM, including domination, submission, fetishes, feminization and fantasy role-play, are endless.
               </p>
             </div>
 
             <div className="text-center p-8 bg-accent/50 rounded-xl border border-primary/20 hover:border-primary/40 transition-all duration-300">
               <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-semibold text-white mb-4">Easy Reservation</h3>
+              <h3 className="text-2xl font-semibold text-white mb-4">Your Fantasy, Our Mission</h3>
               <p className="text-gray-400">
-                Simple online booking process. Just provide your details, 
-                select your time, and you&apos;re all set for your stay.
+                We love having fun with those seeking a transformation or any form of exploration with a talented Dominatrix. 
+                Your fantasy is our mission, and we aim to cater each experience to your particular needs and desires.
               </p>
             </div>
           </div>
@@ -124,17 +142,20 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Gallery Images */}
             {[
-              "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-              "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-              "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-              "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-              "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-              "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+              "/_ (1).jpeg",
+              "/_ (2).jpeg",
+              "/_ (3).jpeg",
+              "/_ (4).jpeg",
+              "/_ (5).jpeg",
+              "/_ (6).jpeg",
+              "/_ (7).jpeg",
+              "/_ (8).jpeg",
+              "/_ (9).jpeg"
             ].map((imageUrl, index) => (
               <div key={index} className="relative group overflow-hidden rounded-xl aspect-[4/3]">
                 <Image
                   src={imageUrl}
-                  alt={`Hotel room ${index + 1}`}
+                  alt={`BDSM dungeon room ${index + 1}`}
                   fill
                   className="object-cover"
                 />
@@ -149,20 +170,28 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-r from-primary to-red-700">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Book Your Stay?
+            Ready to Join Us for Some Fun?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Experience luxury and comfort with our flexible hourly booking system. 
-            Your perfect room is just a click away.
+            There is no repercussion for play, only the pleasure of exploring your deepest desires 
+            knowing your fantasies and secrets are safe with us.
           </p>
-          <Link 
-            href="/rooms" 
+          <button 
+            onClick={() => setShowBookingForm(true)}
             className="inline-block bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105"
           >
-            Reserve Your Room Now
-          </Link>
+            Book Your Session Now
+          </button>
         </div>
       </section>
+
+      {/* Booking Form Modal */}
+      {showBookingForm && (
+        <BookingForm
+          onSuccess={handleBookingSuccess}
+          onCancel={handleBookingCancel}
+        />
+      )}
     </div>
   );
 }
