@@ -44,6 +44,12 @@ export default function Navigation() {
               Gallery
             </Link>
             <Link 
+              href="/about" 
+              className="text-white hover:text-primary transition-colors duration-200 font-medium"
+            >
+              About
+            </Link>
+            <Link 
               href="/faq" 
               className="text-white hover:text-primary transition-colors duration-200 font-medium"
             >
@@ -97,6 +103,13 @@ export default function Navigation() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Gallery
+              </Link>
+              <Link 
+                href="/about" 
+                className="block px-3 py-2 text-white hover:text-primary transition-colors duration-200 font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About
               </Link>
               <Link 
                 href="/faq" 

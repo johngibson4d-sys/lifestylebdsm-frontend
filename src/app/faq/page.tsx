@@ -22,7 +22,7 @@ const faqData: FAQItem[] = [
   {
     id: 3,
     question: "Is there a minimum age requirement?",
-    answer: "All participants must be 18 years or older. We require valid ID verification for all bookings."
+    answer: "All participants must be 18 years or older."
   },
   {
     id: 4,
@@ -48,6 +48,11 @@ const faqData: FAQItem[] = [
     id: 8,
     question: "Is parking available?",
     answer: "Yes, we provide secure, private parking for all our clients. Your discretion and privacy are always protected."
+  },
+  {
+    id: 9,
+    question: "Where are you located?",
+    answer: "We have over 83 dungeons managed by Legacy BDSM with over 75 in the United States. Discover A Legacy BDSM dungeon near you Now. Privately nestled above a bustling neighborhood, with cafes, restaurants, bars, pharmacy, banks, and shops all within walking distance. You will certainly feel far removed from all of this, once you ascend into our space. With soundproof walls, beautiful lighting and private Dungeon Rooms."
   }
 ];
 

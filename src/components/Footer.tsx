@@ -49,13 +49,23 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/rooms" className="text-gray-400 hover:text-primary transition-colors duration-200">
-                  Rooms
+                <Link href="/faq" className="text-gray-400 hover:text-primary transition-colors duration-200">
+                  FAQ
                 </Link>
               </li>
               <li>
                 <Link href="/gallery" className="text-gray-400 hover:text-primary transition-colors duration-200">
                   Gallery
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-gray-400 hover:text-primary transition-colors duration-200">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-gray-400 hover:text-primary transition-colors duration-200">
+                  FAQ
                 </Link>
               </li>
               <li>
@@ -70,9 +80,7 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Contact Info</h3>
             <div className="space-y-2 text-gray-400">
-              <p>123 Dungeon Lane</p>
-              <p>City, State 12345</p>
-              <p>Phone: (555) 123-4567</p>
+              <p><span className="font-bold text-white">83+ dungeons across USA</span>, Germany and Canada</p>
               <p>Email: info@lifestylebdsm.com</p>
             </div>
           </div>
