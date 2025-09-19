@@ -11,7 +11,9 @@ export default function BookingForm({ onSuccess, onCancel }: BookingFormProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    hours: 1,
+    mistressName: '',
+    hours: '1',
+    minutes: '0',
     date: '',
     time: '',
     specialRequests: ''
@@ -22,12 +24,41 @@ export default function BookingForm({ onSuccess, onCancel }: BookingFormProps) {
     const { name, value } = e.target;
     setFormData(prev => ({ 
       ...prev, 
-      [name]: name === 'hours' ? parseInt(value) : value 
+      [name]: value 
     }));
   };
 
   const calculateTotal = () => {
-    return formData.hours * 200; // $200 per hour
+    const hours = parseFloat(formData.hours) || 0;
+    const minutes = parseFloat(formData.minutes) || 0;
+    const totalMinutes = (hours * 60) + minutes;
+    const totalHours = totalMinutes / 60;
+    
+    if (totalHours >= 24) {
+      return 500; // Overnight rate
+    }
+    return Math.ceil(totalHours * 200); // $200 per hour, rounded up
+  };
+
+  const getDurationText = () => {
+    const hours = parseFloat(formData.hours) || 0;
+    const minutes = parseFloat(formData.minutes) || 0;
+    const totalMinutes = (hours * 60) + minutes;
+    const totalHours = totalMinutes / 60;
+    
+    if (totalHours >= 24) {
+      return 'Overnight (24+ hours)';
+    }
+    if (hours === 1 && minutes === 0) {
+      return '1 hour';
+    }
+    if (hours === 0 && minutes > 0) {
+      return `${minutes} minutes`;
+    }
+    if (minutes === 0) {
+      return `${hours} hour${hours > 1 ? 's' : ''}`;
+    }
+    return `${hours} hour${hours > 1 ? 's' : ''} ${minutes} minutes`;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -66,7 +97,7 @@ export default function BookingForm({ onSuccess, onCancel }: BookingFormProps) {
             </div>
             <div className="flex justify-between text-gray-300">
               <span>Duration:</span>
-              <span>{formData.hours} hour{formData.hours > 1 ? 's' : ''}</span>
+              <span>{getDurationText()}</span>
             </div>
             <div className="border-t border-primary/20 pt-2 mt-2">
               <div className="flex justify-between text-white font-semibold">
@@ -79,7 +110,7 @@ export default function BookingForm({ onSuccess, onCancel }: BookingFormProps) {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-white font-medium mb-2">Full Name *</label>
+            <label className="block text-white font-medium mb-2"> Name *</label>
             <input
               type="text"
               name="name"
@@ -87,7 +118,7 @@ export default function BookingForm({ onSuccess, onCancel }: BookingFormProps) {
               onChange={handleInputChange}
               required
               className="w-full px-4 py-3 bg-black/50 border border-primary/30 rounded-lg text-white placeholder-gray-400 focus:border-primary focus:outline-none transition-colors duration-200"
-              placeholder="Enter your full name"
+              placeholder="Enter your  Name"
             />
           </div>
 
@@ -105,23 +136,53 @@ export default function BookingForm({ onSuccess, onCancel }: BookingFormProps) {
           </div>
 
           <div>
-            <label className="block text-white font-medium mb-2">Duration *</label>
-            <select
-              name="hours"
-              value={formData.hours}
+            <label className="block text-white font-medium mb-2">Preferred Mistress *</label>
+            <input
+              type="text"
+              name="mistressName"
+              value={formData.mistressName}
               onChange={handleInputChange}
               required
-              className="w-full px-4 py-3 bg-black/50 border border-primary/30 rounded-lg text-white focus:border-primary focus:outline-none transition-colors duration-200"
-            >
-              <option value={1}>1 Hour - $200</option>
-              <option value={2}>2 Hours - $400</option>
-              <option value={3}>3 Hours - $600</option>
-              <option value={4}>4 Hours - $800</option>
-              <option value={6}>6 Hours - $1,200</option>
-              <option value={8}>8 Hours - $1,600</option>
-              <option value={12}>12 Hours - $2,400</option>
-              <option value={24}>Overnight (24 Hours) - $500</option>
-            </select>
+              className="w-full px-4 py-3 bg-black/50 border border-primary/30 rounded-lg text-white placeholder-gray-400 focus:border-primary focus:outline-none transition-colors duration-200"
+              placeholder="Enter mistress name"
+            />
+          </div>
+
+          <div>
+            <label className="block text-white font-medium mb-2">Duration *</label>
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="block text-gray-300 text-sm mb-1">Hours</label>
+                <input
+                  type="number"
+                  name="hours"
+                  value={formData.hours}
+                  onChange={handleInputChange}
+                  min="0"
+                  max="48"
+                  required
+                  className="w-full px-4 py-3 bg-black/50 border border-primary/30 rounded-lg text-white placeholder-gray-400 focus:border-primary focus:outline-none transition-colors duration-200"
+                  placeholder="0"
+                />
+              </div>
+              <div>
+                <label className="block text-gray-300 text-sm mb-1">Minutes</label>
+                <input
+                  type="number"
+                  name="minutes"
+                  value={formData.minutes}
+                  onChange={handleInputChange}
+                  min="0"
+                  max="59"
+                  step="15"
+                  className="w-full px-4 py-3 bg-black/50 border border-primary/30 rounded-lg text-white placeholder-gray-400 focus:border-primary focus:outline-none transition-colors duration-200"
+                  placeholder="0"
+                />
+              </div>
+            </div>
+            <div className="mt-2 text-sm text-gray-300">
+              <span>Rate: $200/hour | $500/overnight (24+ hours)</span>
+            </div>
           </div>
 
           <div>
