@@ -10,6 +10,7 @@ export default function ContactPage() {
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -19,20 +20,66 @@ export default function ContactPage() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    toast.success('📧 Thank you for your message! We will get back to you soon.', {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      theme: "dark",
-    });
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSubmitting(true);
+    
+    console.log('🚀 ContactForm: Starting form submission');
+    console.log('📝 ContactForm: Form data:', formData);
+
+    try {
+      console.log('🌐 ContactForm: Making API call to /api/send-contact');
+      
+      const response = await fetch('/api/send-contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      console.log('📡 ContactForm: API response status:', response.status);
+      console.log('📡 ContactForm: API response ok:', response.ok);
+
+      if (response.ok) {
+        console.log('✅ ContactForm: Success!');
+        toast.success('📧 Thank you for your message! We will get back to you soon.', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "dark",
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        const errorData = await response.json();
+        console.log('❌ ContactForm: Error response:', errorData);
+        toast.error(`❌ ${errorData.error || 'Failed to send message'}`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "dark",
+        });
+      }
+    } catch (error) {
+      console.error('❌ ContactForm: Network error:', error);
+      toast.error('❌ Failed to send message. Please try again.', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -87,7 +134,7 @@ export default function ContactPage() {
                     <h3 className="text-white font-semibold text-lg mb-2">Email</h3>
                     <p className="text-gray-300">
                       info@lifestylebdsm.com<br />
-                      bookings@lifestylebdsm.com
+                    
                     </p>
                   </div>
                 </div>
@@ -190,9 +237,20 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
-                  className="w-full bg-primary hover:bg-red-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                  disabled={isSubmitting}
+                  className="w-full bg-primary hover:bg-red-700 disabled:bg-gray-600 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
                 >
-                  Send Message
+                  {isSubmitting ? (
+                    <>
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Sending...
+                    </>
+                  ) : (
+                    'Send Message'
+                  )}
                 </button>
               </form>
             </div>
