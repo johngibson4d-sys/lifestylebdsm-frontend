@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 interface FAQItem {
   id: number;
@@ -81,7 +82,15 @@ export default function FAQPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission here
-    alert('Thank you for your question! We will get back to you within 24 hours.');
+    toast.success('❓ Thank you for your question! We will get back to you within 24 hours.', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "dark",
+    });
     setFormData({ name: '', email: '', question: '', subject: '' });
   };
 

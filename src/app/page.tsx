@@ -4,13 +4,22 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import BookingForm from '@/components/BookingForm';
+import { toast } from 'react-toastify';
 
 export default function Home() {
   const [showBookingForm, setShowBookingForm] = useState(false);
 
   const handleBookingSuccess = () => {
     setShowBookingForm(false);
-    alert('Thank you for your booking request! We will contact you within 24 hours to confirm your session.');
+    toast.success('🎉 Thank you for your booking request! We will contact you within 24 hours to confirm your session.', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "dark",
+    });
   };
 
   const handleBookingCancel = () => {

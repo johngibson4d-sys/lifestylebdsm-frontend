@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface BookingFormProps {
   onSuccess: () => void;
@@ -65,11 +67,62 @@ export default function BookingForm({ onSuccess, onCancel }: BookingFormProps) {
     e.preventDefault();
     setIsProcessing(true);
 
-    // Simulate booking processing
-    setTimeout(() => {
+    console.log('🚀 BookingForm: Starting form submission');
+    console.log('📝 BookingForm: Form data:', formData);
+
+    try {
+      console.log('🌐 BookingForm: Making API call to /api/send-booking');
+      
+      const response = await fetch('/api/send-booking', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      console.log('📡 BookingForm: API response status:', response.status);
+      console.log('📡 BookingForm: API response ok:', response.ok);
+
+      if (response.ok) {
+        console.log('✅ BookingForm: Success!');
+        toast.success('🎉 Booking request sent successfully! We will contact you within 24 hours.', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "dark",
+        });
+        onSuccess();
+      } else {
+        const errorData = await response.json();
+        console.log('❌ BookingForm: Error response:', errorData);
+        toast.error(`❌ ${errorData.error || 'Failed to send booking request'}`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "dark",
+        });
+      }
+    } catch (error) {
+      console.error('❌ BookingForm: Network error:', error);
+      toast.error('❌ Failed to send booking request. Please try again.', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
+      });
+    } finally {
       setIsProcessing(false);
-      onSuccess();
-    }, 2000);
+    }
   };
 
   return (

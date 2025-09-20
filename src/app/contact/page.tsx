@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -22,7 +23,15 @@ export default function ContactPage() {
     e.preventDefault();
     // Handle form submission here
     console.log('Form submitted:', formData);
-    alert('Thank you for your message! We will get back to you soon.');
+    toast.success('📧 Thank you for your message! We will get back to you soon.', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "dark",
+    });
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 

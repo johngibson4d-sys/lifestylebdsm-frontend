@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import ToastProvider from "@/components/ToastProvider";
 
 export const metadata: Metadata = {
   title: "Lifestyle BDSM Dungeon - Premium BDSM Services",
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body
         className="antialiased bg-black text-white min-h-screen font-sans"
       >
+        <ToastProvider />
         <Navigation />
         <main className="min-h-screen">
           {children}
